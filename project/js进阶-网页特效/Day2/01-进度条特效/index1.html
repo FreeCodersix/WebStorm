@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+
+        #progress {
+            width: 1000px;
+            height: 35px;
+            line-height: 35px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #progress_bar {
+            width: 900px;
+            height: 100%;
+            background-color: #ccc;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #progress_value {
+            position: absolute;
+            right: 30px;
+            top: 0;
+        }
+
+        #progress_bar_fg {
+            width: 0;
+            height: 100%;
+            background-color: orangered;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        span {
+            display: inline-block;
+            width: 25px;
+            height: 45px;
+            background-color: orangered;
+            border-radius: 4px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="progress">
+    <div id="progress_bar">
+        <div id="progress_bar_fg"></div>
+        <span></span>
+    </div>
+    <div id="progress_value">0%</div>
+</div>
+<script>
+    window.onload = function () {
+        var progress_bar = document.getElementById("progress_bar");
+        var progress_bar_fg = document.getElementById("progress_bar_fg");
+        var span = document.getElementsByTagName("span")[0];
+        var progress_value = document.getElementById("progress_value");
+
+        //点击进度条
+        progress_bar.onclick = function (event) {
+            var event = event || window.event;
+            var point = event.offsetX;
+            if (point < 0) {
+                point = 0;
+            } else if (point > progress_bar.offsetWidth - span.offsetWidth) {
+                point = progress_bar.offsetWidth - span.offsetWidth;
+            }
+            span.style.left = point + 'px';
+            progress_bar_fg.style.width = point + 'px';
+            progress_value.innerText = parseInt(point / (progress_bar.offsetWidth - span.offsetWidth) * 100) + '%';
+        };
+
+
+        //拖动进度条
+        span.onmousedown = function (event) {
+            var e = event || window.event;
+
+            var point = event.clientX - span.offsetLeft;
+
+            document.onmousemove = function (event) {
+                var event = event || window.event;
+                var pointX = event.clientX - point;
+
+                if (pointX < 0) {
+                    pointX = 0;
+                } else if (pointX > progress_bar.offsetWidth - span.offsetWidth) {
+                    pointX = progress_bar.offsetWidth - span.offsetWidth;
+                }
+                span.style.left = pointX + 'px';
+                progress_bar_fg.style.width = pointX + 'px';
+                progress_value.innerText = parseInt(pointX / (progress_bar.offsetWidth - span.offsetWidth) * 100) + '%';
+
+                return false;
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+        }
+    }
+</script>
+</body>
+</html>

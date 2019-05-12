@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../JS/jquery-1.12.4.js"></script>
+	<script>
+		//$();就代表调用jQuery的核心函数
+		
+		//1.接收一个函数
+		$(function () {
+			alert("hello");
+		//2.接收一个字符串
+
+		//2.1接收一个字符串选择器
+		var $box1 = $(".box1");
+		var $box2 = $("#box2");
+		console.log($box1);
+		console.log($box2);
+		//2.2接收一个代码片段
+		var $p = $("<p>我是段落</p>");
+		console.log($p);
+		$box1.append($p);
+		//3.接收一个	DOM元素		
+		var span = document.getElementsByTagName("span")[0];
+		console.log(span);
+		var $span = $(span);
+		console.log($span);
+	    });
+	</script>
+	<script type="text/javascript">
+		var str = "   lb w   ";
+		var res = $.trim(str);
+		console.log(str);
+		console.log(res);
+	</script>
+</head>
+<body>
+	<div class="box1"></div>
+	<div id="box2"></div>
+	<span>我是span</span>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21-无限滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 161px;
+            border: 1px solid #000;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+        ul {
+            width: 1800px;
+            height: 161px;
+            list-style: none;
+            background-color: black;
+        }
+
+        ul > li {
+            float: left;
+        }
+    </style>
+    <script src="../JS/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var target = 0;
+
+            var timer;
+
+            function autoPlay() {
+                timer = setInterval(function () {
+                    target += -10;
+                    if (target <= -1200) {
+                        target = 0;
+                    }
+                    $("ul").css("marginLeft", target);
+                }, 100);
+            }
+
+            autoPlay();
+
+            $("ul>li").hover(function () {
+                clearInterval(timer);
+                $(this).siblings().fadeTo(100,0.2);
+            }, function () {
+                autoPlay();
+                $(this).siblings().fadeTo(100,1);
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="../images/a.jpg" alt=""></li>
+        <li><img src="../images/b.jpg" alt=""></li>
+        <li><img src="../images/c.jpg" alt=""></li>
+        <li><img src="../images/d.jpg" alt=""></li>
+        <li><img src="../images/a.jpg" alt=""></li>
+        <li><img src="../images/b.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15-jQuery事件冒泡和默认行为</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script src="../JS/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //1.什么是事件冒泡？
+            //同时给儿子和父亲绑定事件时，儿子的事件会冒泡到父亲，即当执行儿子的事件时，父亲的事件也会执行
+            $(".son").click(function () {
+                alert("son");
+            });
+            $(".father").click(function () {
+                alert("father");
+            });
+
+            //2.如何阻止事件冒泡？
+            //给儿子事件加一句return false;或者event.stopPropagation();
+            /*
+            $(".son").click(function () {
+                alert("son");
+                return false;
+            });
+            */
+            $(".son").click(function (event) {
+                alert("son");
+                event.stopPropagation();
+            });
+            $(".father").click(function () {
+                alert("father");
+            });
+
+            //3.什么是默认行为？
+            //元素自带的默认行为，比如a标签默认跳转，提交按钮默认提交到服务器，不需要事件监听，也能产生事件
+
+            //4.如何阻止默认行为？
+            //给元素绑定事件，并加一句return false;或者event.preventDefault();
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<a href="http://www.baidu.com">我是百度</a>
+<form action="http://www.taobao.com">
+    <input type="text">
+    <input type="submit">
+</form>
+</body>
+</html>

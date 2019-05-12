@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS特效-基础知识</title>
+</head>
+<body>
+<button id="btn" class="mybtn" name="my-btn">点我</button>
+<script type="text/html">
+    var btn1=document.getElementById("btn");
+    console.log(btn1);
+    var btn2 = document.getElementsByClassName("mybtn")[0];
+    console.log(btn2);
+    var btn3 = document.getElementsByName("my-btn")[0];
+    console.log(btn3);
+    var btn4 = document.getElementsByTagName("button")[0];
+    console.log(btn4);
+    var btn5= document.querySelector("#btn");
+    //#btn也可以换成其他选择器，比如.mybtn类选择器；但是querySelector只会返回匹配到的第一个事件源；
+    console.log(btn5);
+    var btn6= document.querySelectorAll("#btn")[0];
+    //#btn也可以换成其他选择器，比如.mybtn类选择器；且querySelectorAll会返回匹配到的所有事件源；
+    console.log(btn6);
+</script>
+<script>
+    //绑定事件的方法；
+    var btn = document.getElementById("btn");
+    // btn.onclick = function () {
+    //     alert("点我干啥？");
+    // };
+    function deal() {
+        alert("点我干啥？");
+    }
+    btn.onclick= deal;
+</script>
+</body>
+</html>

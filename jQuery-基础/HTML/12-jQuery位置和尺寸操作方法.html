@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-jQuery位置和尺寸操作方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 50px solid #000;
+            margin-left: 50px;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src="../JS/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var btns = document.getElementsByTagName("button");
+            //获取
+            btns[0].onclick = function () {
+                //获取元素的宽度
+                console.log($(".father").width());
+
+                //offset（）
+                //作用：获取元素距离窗口的偏移位
+                console.log($(".son").offset().left);
+
+                //position（）
+                //作用：获取元素距离定位元素的偏移位
+                console.log($(".son").position().left);
+            };
+
+            //设置
+            btns[1].onclick = function () {
+               $(".father").width("500px");
+
+               $(".son").offset({
+                   left: 10
+               });
+
+               //注意：position方法只能获取，不能直接设置，只能通过css设置
+                /*$(".son").position({
+                    left: 10
+                });*/
+                $(".son").css({
+                    left:"10px"
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<button>获取</button>
+<button>设置</button>
+</body>
+</html>

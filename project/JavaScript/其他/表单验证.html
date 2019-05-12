@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        #prompt {
+            font-size: 13px;
+            color: darkgray;
+        }
+
+        #score {
+            border: 1px solid darkgray;
+        }
+
+        .right {
+            background: url("../Images/nb03.png") no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: lightgreen !important;
+        }
+
+        .error {
+            background: url("../Images/nb01.png") no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: red !important;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <label>您的成绩：
+    <input type="text" id="score" placeholder="请输入分数"></label>
+    <span id="prompt">请输入您的成绩!</span>
+
+</div>
+<script>
+    window.onload = function () {
+        $("score").onblur = function () {
+            var value = parseFloat($("score").value);
+            if (isNaN(value)) {
+                dealStyle("请输入正确的成绩!","error","red")
+            }
+            else if (value >= 0 && value <= 100) {
+                dealStyle("输入成绩正确!","right","green");
+            }
+            else{
+                dealStyle("输入成绩必须在0-100之间!","error","red")
+            }
+        };
+        $("score").onfocus = function () {
+            dealStyle("请输入您的成绩!","","darkgray");
+            $("score").style.outline = "none";
+            $("score").value = "";
+        };
+        function dealStyle(msg,className,color) {
+            $("prompt").innerText = msg;
+            $("prompt").className = className;
+            $("score").style.borderColor = color;
+        }
+        function $(id) {
+            return typeof  id === "string" ? document.getElementById(id) : null;
+        }
+    }
+</script>
+</body>
+</html>
+
+

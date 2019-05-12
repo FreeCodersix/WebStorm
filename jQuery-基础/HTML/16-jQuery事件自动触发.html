@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-jQuery事件自动触发</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="../JS/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //需要点击才能触发事件
+            $(".btns").click(function () {
+               $("div").css({
+                   background: "red"
+               });
+            });
+
+            //两种自动触发方式
+            //trigger会触发冒泡事件和默认行为，
+            // 但是trigger不会触发a标签的冒泡事件和默认行为，
+            // 如果想触发，则需要给a标签的内容用span括起来，然后监听span的事件；
+            $(".btns").trigger("click");
+            //triggerHandler不会触发冒泡事件和默认行为
+            $(".btns").triggerHandler("click");
+        });
+    </script>
+</head>
+<body>
+<div></div>
+<button class="btns">变红</button>
+</body>
+</html>

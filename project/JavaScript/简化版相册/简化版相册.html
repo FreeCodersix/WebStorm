@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化版相册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #ccc;
+
+        }
+        p{
+            font-size: 32px;
+            color: red;
+        }
+        #big{
+            width: 300px;
+            height: 240px;
+            border: 1px solid red;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        #big>img{
+            width: 300px;
+            height: 240px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+        #two{
+            height: 60px;
+            width: 70px;
+        }
+        #two>ul>li>img{
+            height: 60px;
+            width: 70px;
+            float: left;
+        }
+
+        #two>ul>li{
+            height: 58px;
+            width: 70px;
+            display: inline-block;
+            float: left;
+            margin-right: 6px;
+            border: 1px solid red;
+            box-sizing: border-box;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        #two>ul>li:nth-child(4){
+            margin-right: 0;
+            display: inline-block;
+
+        }
+        ul{
+            height: 60px;
+            width: 300px;
+            display: inline-block;
+            border: 1px solid yellow;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<p>充电宝</p>
+<div id="big">
+    <img src="xc-Images/accessories1.jpg" alt="">
+</div>
+<div id="two">
+    <ul>
+        <li><img src="xc-Images/accessories1.jpg" alt=""></li>
+        <li><img src="xc-Images/accessories2.jpg" alt=""></li>
+        <li><img src="xc-Images/accessories3.jpg" alt=""></li>
+        <li><img src="xc-Images/accessories4.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        var img1=document.getElementsByTagName("img")[0];
+        var img2=document.getElementsByTagName("img")[1];
+        var img3=document.getElementsByTagName("img")[2];
+        var img4=document.getElementsByTagName("img")[3];
+        var img5=document.getElementsByTagName("img")[4];
+        var p=document.getElementsByTagName("p")[0];
+        img2.onclick = function () {
+            var src=img2.getAttribute("src");
+            img1.setAttribute("src",src);
+            p.innerText = "充电宝";
+        }
+        img3.onclick = function () {
+            var src=img3.getAttribute("src");
+            img1.setAttribute("src",src);
+            p.innerText = "耳机";
+        }
+        img4.onclick = function () {
+            var src=img4.getAttribute("src");
+            img1.setAttribute("src",src);
+            p.innerText = "自拍杆";
+        }
+        img5.onclick = function () {
+            var src=img5.getAttribute("src");
+            img1.setAttribute("src",src);
+            p.innerText = "三脚架";
+        }
+    }
+</script>
+</body>
+</html>

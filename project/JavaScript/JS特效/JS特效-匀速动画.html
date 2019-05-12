@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS特效-匀速动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #btn {
+            width: 90px;
+            height: 30px;
+        }
+
+        #box {
+            width: 90px;
+            height: 90px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+
+        var timer = null, begin = 0, step = 10, target = 500, top = 0, left = 500, bottom = 500;
+
+        btn.onclick = function () {
+
+            clearInterval(timer);
+
+            timer = setInterval(function () {
+
+                // if(begin >= target){
+                //     clearInterval(timer);
+                // }
+                if (begin <= target && top === 0) {
+                    begin += step;
+                    box.style.marginLeft = begin + 'px';
+                }
+                else if (begin > target && top <= target) {
+                    top += step;
+                    box.style.marginTop = top + 'px';
+                }
+                else if (begin > target && top >= target && left > 0) {
+                    left -= step;
+                    box.style.marginLeft = left + 'px';
+                } else if (begin > target && top >= target && left <= 0 && bottom > 0) {
+                    bottom -= step;
+                    box.style.marginTop = bottom + 'px';
+                } else {
+                    begin = 0, top = 0, left = 500, bottom = 500;
+                }
+            }, 100);
+        }
+    }
+</script>
+</body>
+</html>

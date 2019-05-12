@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS特效-日历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 250px;
+            height: 380px;
+            background-color: orangered;
+            margin: 100px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        #box_top {
+            font-size: 23px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #box_content {
+            width: 90%;
+            height: 210px;
+            margin: 0 auto;
+            font-size: 100px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: orange;
+        }
+
+        #box_bottom {
+            font-size: 23px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #box_footer {
+            font-size: 23px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+        }
+
+        #button1 {
+            position: absolute;
+            left: 30px;
+            bottom: 10px;
+        }
+
+        #button2 {
+            position: absolute;
+            right: 30px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box_top">2019年3月23日 星期六</div>
+    <div id="box_content">23</div>
+    <div id="box_bottom">16:23:44:333</div>
+    <div id="box_footer">111</div>
+    <button id="button1">开始</button>
+    <button id="button2">结束</button>
+</div>
+<script>
+    window.onload = function () {
+        function toTime() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var week = date.getDay();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var milliseconds = date.getMilliseconds();
+            var weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            $("box_top").innerText = year + '年' + month + '月' + day + '日' + weeks[week];
+            $("box_content").innerText = day;
+            $("box_bottom").innerText = hours + '时' + minutes + '分' + seconds + '秒';
+            $("box_footer").innerText = milliseconds;
+        }
+        // 开始定时器
+        var timer = null;
+        $("button1").onclick = function () {
+            timer = setInterval(toTime, 1);
+        };
+        // 结束定时器
+
+        $("button2").onclick = function () {
+            clearInterval(timer);
+        };
+    };
+
+    function $(id) {
+        return typeof id === 'string' ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

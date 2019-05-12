@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 800px;
+            height: 200px;
+            position: relative;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        #box ul {
+            width: 1300px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+        }
+
+        #box_top > li {
+
+            vertical-align: top;
+            float: left;
+        }
+
+        #box_bottom {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: #e8e8e8;
+            width: 100%;
+            height: 25px;
+        }
+
+        .mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 25px;
+            background-color: orangered;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="box_top">
+        <li><img src="images/img1.jpg" alt=""></li>
+        <li><img src="images/img2.jpg" alt=""></li>
+        <li><img src="images/img3.jpg" alt=""></li>
+        <li><img src="images/img4.jpg" alt=""></li>
+        <li><img src="images/img5.jpg" alt=""></li>
+        <li><img src="images/img6.jpg" alt=""></li>
+        <li><img src="images/img7.jpg" alt=""></li>
+        <li><img src="images/img8.jpg" alt=""></li>
+        <li><img src="images/img1.jpg" alt=""></li>
+        <li><img src="images/img2.jpg" alt=""></li>
+    </ul>
+    <div id="box_bottom">
+        <span class="mask"></span>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var box = document.getElementById("box");
+        var box_top = document.getElementById("box_top");
+        var box_bottom = document.getElementById("box_bottom");
+        var mask = box_bottom.children[0];
+
+        var mask_len = (box.offsetWidth / box_top.offsetWidth) * box.offsetWidth;
+        mask.style.width = mask_len + 'px';
+
+        mask.onmousedown = function (event) {
+            var e = event || window.event;
+            var beginX = e.clientX - mask.offsetLeft;
+            document.onmousemove = function (event) {
+                var event = event || window.event;
+                var endX = event.clientX - beginX;
+                if (endX < 0) {
+                    endX = 0;
+                } else if (endX >= box_bottom.offsetWidth - mask.offsetWidth) {
+                    endX = box_bottom.offsetWidth - mask.offsetWidth;
+                }
+                mask.style.left = endX + 'px';
+                var content_len = (box_top.offsetWidth - box.offsetWidth) / (box.offsetWidth - mask.offsetWidth) * endX;
+                box_top.style.left = -content_len + 'px';
+                return false;
+            }
+        };
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+
+    }
+</script>
+</body>
+</html>

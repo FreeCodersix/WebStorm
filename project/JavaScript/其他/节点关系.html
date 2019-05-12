@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点关系</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+        }
+        .btn{
+            height: 15px;
+            width: 40px;
+            font-size: 8px;
+            float: left;
+        }
+        #span{
+            height: 15px;
+            width: 40px;
+            float: left;
+        }
+        #span>a{
+            display: inline-block;
+            line-height: 15px;
+            width: 40px;
+            font-size: 8px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <button class="btn">按钮</button>
+    <span id="span">
+        <a href="#">百度一下</a>
+    </span>
+</div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementsByClassName("btn")[0];
+        btn.onclick = function () {
+            var span = document.getElementById("span");
+            var box = span.parentNode;
+            box.style.backgroundColor = "red";
+        }
+        var dom = btn.nextElementSibling||btn.nextSibling;
+    }
+</script>
+</body>
+</html>

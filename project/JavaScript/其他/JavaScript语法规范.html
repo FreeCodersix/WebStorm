@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript语法规范</title>
+
+</head>
+<body>
+<script type="text/html">
+    function Dog(option) {
+    this.name = option.name;
+    this.age = option.age;
+    this.dogFriends = option.dogFriends;
+    this.eat = function (something) {
+    console.log(this.name + " eating " + something)
+    }
+    }
+
+    var dog = new Dog({name: "Big", "age": 18, "dagFriends": null});
+    dog.eat("shi");
+
+</script>
+<script>
+    var arr = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10];
+    console.log(arr.sort(function (a, b) {
+        return a - b;
+    }));
+    console.log(arr.slice(0, 5));
+    console.log(arr.splice(0, 2));
+    arr.forEach(function (value, index) {
+        console.log(index + ":" + value);
+    });
+    var arr1 = arr.map(function (value) {
+        return value * value;
+    });
+    console.log(arr1);
+    var arr2 = arr.filter(function (value, index) {
+        return index % 3 === 0 || value >= 9;
+    });
+    console.log(arr2);
+    var arr3 = arr.every(function (value,index) {
+        return value<10;
+    });
+    console.log(arr3);
+    var arr4 = arr.some(function (value, index) {
+        return value<10;
+    });
+    console.log(arr4);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

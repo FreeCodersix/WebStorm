@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+        img{
+            vertical-align: top;
+            width: 100%;
+        }
+        section{
+            width: 70%;
+            margin: 0 auto;
+        }
+        .nav{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+<header id="head">
+    <img src="images/top.png" alt="">
+</header>
+<nav id="nav">
+    <img src="images/nav.png" alt="">
+</nav>
+<section>
+    <img src="images/body01.png" alt="">
+    <img src="images/body02.png" alt="">
+</section>
+<script>
+    window.onload = function () {
+        var nav_top_height = $("nav").offsetTop;
+        window.onscroll = function () {
+            var scrool_top_height = scroll().top;
+            if(scrool_top_height>=nav_top_height){
+                $("nav").className = "nav";
+            }
+            else $("nav").className = "";
+        }
+    };
+</script>
+
+<script src="js/myFunc.js"></script>
+</body>
+</html>

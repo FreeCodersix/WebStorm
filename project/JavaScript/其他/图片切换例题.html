@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换例题</title>
+</head>
+<body>
+<img id="icon" src="../Images/nb01.png" alt="">
+<p></p>
+<button id="prev">上一张</button>
+<button id="next">下一张</button>
+<script>
+    window.onload = function () {
+        var icon = document.getElementById("icon");
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+
+        var maxIndex = 3, minIndex = 1, currentIndex = minIndex;
+        prev.onclick = function () {
+            if (currentIndex === minIndex){
+                currentIndex = maxIndex;
+            }
+
+            else{
+                currentIndex--;
+            }
+            icon.setAttribute("src","nb0"+currentIndex+".png");
+        };
+        next.onclick = function () {
+            if (currentIndex === maxIndex){
+                currentIndex = minIndex;
+            }
+
+            else{
+                currentIndex++;
+            }
+            icon.setAttribute("src","nb0"+currentIndex+".png");
+        };
+    }
+</script>
+</body>
+</html>

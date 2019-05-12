@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jd轮播图</title>
+    <style>
+        #box{
+            width: 590px;
+            height: 470px;
+            margin: 100px auto;
+            background-color: red;
+            position: relative;
+        }
+        #left,#right{
+            width: 24px;
+            height: 40px;
+            background-color: rgba(58, 8, 14,0.5);
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        #left{
+            position: absolute;
+            left: 0;
+            top: 215px;
+        }
+        #right{
+            position: absolute;
+            right: 0;
+            top: 215px;
+        }
+        ul{
+            position: absolute;
+            left: 48px;
+            bottom: 24px;
+        }
+        ul>li{
+            width: 35px;
+            height: 35px;
+            float: left;
+            font-size: 35px;
+            color: white;
+            opacity: 0.3;
+
+        }
+        ul>li:nth-child(1){
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="jd-Images/jd01.jpg" alt="">
+    <div id="left">&lt;</div>
+    <div id="right">&gt;</div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        var left = document.getElementById("left");
+        var right = document.getElementById("right");
+        var img = document.getElementsByTagName("img")[0];
+        var temp=1,max=8,min=1;
+        left.onclick = function () {
+            if(temp===min)temp=max;
+            else temp--;
+            img.setAttribute("src","jd-Images/jd0"+temp+".jpg")
+            var li = document.getElementsByTagName("li")[temp-1];
+            var temp1=temp;
+            if(temp1===8)temp1=0;
+            var li1 = document.getElementsByTagName("li")[temp1];
+
+            li.style.opacity = 1;
+            li1.style.opacity = 0.3;
+
+        }
+        right.onclick = function () {
+            if(temp===max)temp=min;
+            else temp++;
+            img.setAttribute("src","jd-Images/jd0"+temp+".jpg")
+            var li = document.getElementsByTagName("li")[temp-1];
+            li.style.opacity = 1;
+            var temp1=temp-2;
+            if(temp===1)temp1=7;
+            var li1 = document.getElementsByTagName("li")[temp1];
+            li1.style.opacity = 0.3;
+        }
+    }
+</script>
+</body>
+</html>

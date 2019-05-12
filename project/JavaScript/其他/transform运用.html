@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transform运用</title>
+    <style>
+        #box{
+            width: 90px;
+            height: 90px;
+            background-color: red;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">形变</button>
+<div id="box"></div>
+<script>
+    window.onload = function () {
+        var index = 0,bool=true;
+        $("btn").onclick = function (ev) {
+
+
+           if(index<=5&&bool===false){
+               if(index===0){bool=true;}
+               else index--;
+           }
+           else if(index>=0&&bool===true){
+               if(index===5){bool=false;index--;}
+               else index++;
+           }$("box").style.transform = "translate("+(index*100)+"px, "
+                +(index*100)+"px) rotate("+(index*50)+"deg) scale("+(index+1)+")";
+        }
+    };
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

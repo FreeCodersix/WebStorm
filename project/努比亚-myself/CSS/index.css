@@ -1,0 +1,533 @@
+body {
+    background-color: #f7f4f4;
+}
+
+.top {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.top .top_in {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.top .top_logo {
+    height: 100%;
+    width: 190px;
+    float: left;
+}
+
+.top .top_logo a img {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.top .top_title {
+    height: 100%;
+    width: 740px;
+    float: right;
+}
+
+.top .top_nav {
+    float: left;
+    width: 550px;
+    height: 100%;
+}
+
+.top .top_nav > li {
+    float: left;
+}
+
+.top ul li > a:hover {
+    color: #e82c07;
+}
+
+.top .top_nav > li > a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 40px;
+    line-height: 60px;
+}
+
+.top .top_login {
+    float: right;
+    width: 150px;
+    height: 100%;
+}
+
+.top .top_login > li > a {
+    float: right;
+    font-size: 12px;
+    color: #ccc;
+    margin-left: 10px;
+    line-height: 60px;
+}
+
+.top .top_login > li > img {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.banner {
+    width: 100%;
+    height: 920px;
+}
+
+.banner .nav_out {
+    width: 100%;
+    height: 121px;
+    position: absolute;
+    background-color: white;
+    z-index: 998;
+}
+
+.banner .nav {
+    width: 1200px;
+    height: 121px;
+    margin: 0 auto;
+}
+
+.banner .nav > ul {
+    width: 100%;
+    height: 100%;
+    padding-left: 75px;
+    padding-right: 75px;
+    box-sizing: border-box;
+}
+
+.banner .nav > ul > li {
+    width: 150px;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+.banner .nav > ul > li:hover {
+    border-bottom: 2px solid red;
+    box-sizing: border-box;
+}
+
+.banner .nav > ul > li img {
+    width: 120px;
+    height: 80px;
+    margin-top: 15px;
+}
+
+.banner .nav > ul > li p {
+    color: #666;
+}
+
+.banner .figure {
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 60px;
+}
+
+.banner .figure img {
+    height: 100%;
+    /*
+    当图片大于元素宽度时，采用margin： 0 -100%；
+    然后在父元素中添加text-align：center；来让图片居中；
+    */
+    margin: 0 -100%;
+}
+
+.banner .figure > ol {
+    width: 150px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    bottom: 10px;
+}
+
+.banner .figure > ol > li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    margin-left: 15px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 0, 0, 0);
+    cursor: pointer;
+}
+
+.banner .figure > ol > li:hover {
+    border: 2px solid rgba(255, 0, 0, 1);
+    transform: scale(1.2, 1.2);
+    background-color: transparent;
+}
+
+.banner .video {
+    width: 1200px;
+    height: 250px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.banner .video ul {
+    width: 100%;
+    height: 100%;
+}
+
+.banner .video > ul > li {
+    float: left;
+    width: 396px;
+    height: 250px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+
+.banner .video > ul > li:nth-child(2) {
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.banner .video > ul > li > img {
+    height: 100%;
+    margin: 0 -100%;
+}
+
+.banner .video .video_info {
+    width: 100%;
+    height: 155px;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+.banner .video>ul>li>div>img{
+    cursor: pointer;
+}
+.banner .video ul > li:hover .video_info {
+    opacity: 1;
+}
+
+.banner .video ul > li:hover > img {
+    opacity: 0.5;
+}
+
+.banner .video ul > li:hover .video_info > img {
+    animation: sport 2s .5s ease-in-out infinite;
+}
+
+@keyframes sport {
+    20% {
+        transform: scale(.8);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(.9);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.banner .video .video_info > h3 {
+    font-size: 16px;
+    color: white;
+    line-height: 40px;
+}
+
+.banner .video .video_info > p {
+    font-size: 12PX;
+    color: white;
+}
+
+.content {
+    height: 1883px;
+    width: 100%;
+}
+
+.content > dl {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.content > dl > dt {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.content > dl > dt > h3 {
+    font-size: 35px;
+    color: #333;
+}
+
+.content > dl > dt > p {
+    margin-top: 20px;
+}
+
+.content > dl > dt > a {
+    color: red;
+}
+
+.content .content_phone {
+    width: 1200px;
+    height: 1200px;
+}
+
+.content .content_phone > li {
+    float: left;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.content .content_phone > li:nth-child(1) {
+    width: 1200px;
+    height: 395px;
+    margin-bottom: 10px;
+}
+
+.content .content_phone > li:nth-child(2) {
+    width: 395px;
+    height: 795px;
+    margin-right: 10px;
+}
+
+.content .content_phone > li:nth-child(3) {
+    width: 795px;
+    height: 390px;
+    margin-bottom: 10px;
+}
+
+.content .content_phone > li:nth-child(4) {
+    width: 390px;
+    height: 395px;
+    margin-right: 10px;
+}
+
+.content .content_phone > li:nth-child(5) {
+    width: 395px;
+    height: 395px;
+}
+
+.content .content_phone > li > img {
+    width: 100%;
+    transition: all 1s;
+}
+
+.content .content_phone > li:nth-child(1) > img {
+    margin-top: 60px;
+}
+
+.content .content_phone .phone_des {
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    bottom: 20px;
+    text-align: center;
+}
+
+.content .content_phone .phone_des > h4 {
+    font-size: 20px;
+    color: #000;
+}
+
+.content .content_phone .phone_des > p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.content .content_phone .phone_des > span {
+    display: inline-block;
+    width: 108px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #000;
+    cursor: pointer;
+}
+
+.content .content_phone > li:nth-child(1) .phone_des {
+    margin-left: 300px;
+    margin-bottom: 150px;
+}
+
+.content .content_phone > li:nth-child(1) img {
+    margin-left: -100px;
+}
+
+.content .content_phone > li:nth-child(3) img {
+    margin-left: 100px;
+}
+
+.content .content_phone > li:nth-child(1):hover img {
+    margin-left: 0;
+}
+
+.content .content_phone > li:nth-child(3):hover img {
+    margin-left: 0;
+}
+
+.content .content_phone > li:hover .img_scale {
+    transform: scale(1.2, 1.2);
+}
+
+.content .content_accessories {
+    width: 1200px;
+    height: 300px;
+}
+
+.content .content_accessories li > img {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.content .content_accessories > li:hover img {
+    transform: scale(1.2, 1.2);
+}
+
+.content .content_accessories > li > p {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.content .content_accessories > li:nth-child(2) {
+    margin-right: 6px;
+    margin-left: 7px;
+}
+
+.content .content_accessories > li:nth-child(3) {
+    margin-right: 7px;
+}
+
+.content .content_accessories > li {
+    float: left;
+    height: 300px;
+    width: 295px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.footer {
+    border-top: 2px solid #ccc;
+    height: 396px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+.footer_title {
+    width: 100%;
+    height: 46px;
+    margin-bottom: 10px;
+}
+
+.footer_title > p {
+    line-height: 46px;
+    color: #ccc;
+}
+
+.footer_content {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.footer_content .group {
+    float: left;
+    width: 241px;
+    height: 100%;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.footer_content .group > li {
+    margin-top: 2px;
+}
+
+.footer_content .group ul > li > a {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer_content .group ul > li > a:hover {
+    color: #e82c07;
+}
+
+.footer_bottom {
+    height: 90px;
+    width: 100%;
+}
+
+.footer_bottom li > a, li > span {
+    float: left;
+    line-height: 60px;
+    color: #ccc;
+}
+
+.footer_bottom li > a {
+    font-size: 12px;
+
+}
+
+.footer_bottom .waiter_phone {
+
+    height: 60px;
+    width: 300px;
+    float: left;
+    line-height: 60px;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.footer_bottom .logo_content {
+    height: 45px;
+    width: 120px;
+    float: left;
+    margin-left: 100px;
+    background: url("../Images/nubia-syb-all.png") no-repeat -125px 15px;
+
+}
+
+.footer_bottom .last {
+    width: 100%;
+    height: 30px;
+    float: left;
+
+}
+
+.footer_bottom .last > p {
+    font-size: 10px;
+    line-height: 30px;
+    color: #ccc;
+}
+
+.footer_bottom .last > p > img {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}

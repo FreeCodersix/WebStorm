@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器缓动动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #btn {
+            width: 90px;
+            height: 30px;
+        }
+
+        #box {
+            width: 90px;
+            height: 90px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+
+        var timer = null, begin = 0, target = 800;
+
+        btn.onclick = function () {
+
+            clearInterval(timer);
+
+            //设置定时器
+            // 起始值 += （结束值 - 起始值）* 缓动系数     缓动系数一般取0-1之间；
+            timer = setInterval(function () {
+                begin += (target - begin) * 0.2;
+                if(Math.round(begin) >= target){
+                    begin = target;
+                    clearInterval(timer);
+                }
+                box.style.marginLeft = begin + 'px';
+            }, 100);
+        }
+    }
+</script>
+</body>
+</html>

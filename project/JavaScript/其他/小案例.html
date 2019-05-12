@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            box-sizing: border-box;
+            margin: 0 auto;
+            position: relative;
+        }
+        #icon{
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+        }
+        #close{
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="../Images/nb01.png" alt="" id="logo">
+    <img src="../Images/nb03.png" alt="" id="close">
+</div>
+<script>
+    // 鼠标点击,关闭所有东西
+    window.onload = function () {
+        var box = document.getElementById("box");
+        var close = document.getElementById("close");
+        close.onclick = function () {
+            box.style.display= "none";
+        }
+    }
+//    鼠标移动，切换图片
+    window.onload = function () {
+        var logo = document.querySelector("#logo");
+         logo.onmouseover = function () {
+             logo.src="nubil.png";
+         }
+         logo.onmouseout = function () {
+             logo.src= "nb.png";
+         }
+    }
+</script>
+</body>
+</html>

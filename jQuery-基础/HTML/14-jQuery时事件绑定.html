@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-jQuery时事件绑定</title>
+    <script src="../JS/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //jQuery中有两种绑定事件方式
+            //1.eventName(fn);
+            /*$("button").click(function () {
+                alert("hello1");
+            });*/
+
+
+            function test1() {
+                alert("hello2");
+            }
+
+            function test2() {
+                alert("hello1");
+            }
+            //2.on(eventName,fn);
+            $("button").on("click",test1());
+            $("button").on("click",test2());
+
+            //3.事件解绑
+            //3.1不传参数，移除所有事件
+            $("button").off();
+
+            //3.2传一个参数，移除所有指定类型的事件
+            $("button").off("click");
+
+            //3.3传两个参数，移除所指定类型的指定事件
+            $("button").off("click",test1);
+        });
+    </script>
+</head>
+<body>
+<button>我是按钮</button>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS特效-定时器轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #box{
+            width: 322px;
+            height: 250px;
+            border: 1px solid #ccc;
+            margin:  100px auto;
+            position: relative;
+        }
+        .left,.right{
+            width: 60px;
+            height: 250px;
+            /*background-color: red;*/
+            float: left;
+        }
+        li{
+            display: flex;
+            width: 60px;
+            height: 27px;
+            border-bottom: 1px solid #ccc;
+            justify-content: center;
+            align-items: center;
+        }
+        .center{
+            width: 200px;
+            height: 250px;
+            float: left;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-bottom: none;
+            overflow: hidden;
+        }
+        img{
+            width: 200px;
+            height: 250px;
+        }
+        .current{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul class="left">
+        <li class="current"><a href="#">美食1</a></li>
+        <li><a href="#">美食2</a></li>
+        <li><a href="#">美食3</a></li>
+        <li><a href="#">美食4</a></li>
+        <li><a href="#">美食5</a></li>
+        <li><a href="#">美食6</a></li>
+        <li><a href="#">美食7</a></li>
+        <li><a href="#">美食8</a></li>
+        <li><a href="#">美食9</a></li>
+    </ul>
+    <div class="center">
+        <img src="JS-Images/accessories1.jpg" alt="">
+        <img src="JS-Images/accessories2.jpg" alt="">
+        <img src="JS-Images/accessories3.jpg" alt="">
+        <img src="JS-Images/accessories4.jpg" alt="">
+        <img src="JS-Images/accessories1.jpg" alt="">
+        <img src="JS-Images/accessories2.jpg" alt="">
+        <img src="JS-Images/accessories3.jpg" alt="">
+        <img src="JS-Images/accessories4.jpg" alt="">
+        <img src="JS-Images/accessories1.jpg" alt="">
+        <img src="JS-Images/accessories2.jpg" alt="">
+        <img src="JS-Images/accessories3.jpg" alt="">
+        <img src="JS-Images/accessories4.jpg" alt="">
+        <img src="JS-Images/accessories1.jpg" alt="">
+        <img src="JS-Images/accessories2.jpg" alt="">
+        <img src="JS-Images/accessories3.jpg" alt="">
+        <img src="JS-Images/accessories4.jpg" alt="">
+        <img src="JS-Images/accessories1.jpg" alt="">
+        <img src="JS-Images/accessories2.jpg" alt="">
+    </div>
+    <ul class="right">
+        <li><a href="#">美食10</a></li>
+        <li><a href="#">美食11</a></li>
+        <li><a href="#">美食12</a></li>
+        <li><a href="#">美食13</a></li>
+        <li><a href="#">美食14</a></li>
+        <li><a href="#">美食15</a></li>
+        <li><a href="#">美食16</a></li>
+        <li><a href="#">美食17</a></li>
+        <li><a href="#">美食18</a></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        var allLis = document.getElementsByTagName("li");
+        var allImages = document.getElementsByTagName("img");
+
+        var timer = null;
+
+        var loop = 0;
+        setInterval(function () {
+            loop++;
+
+            //排他思想
+            for(var i=0;i<allLis.length;i++){
+                allLis[i].className = '';
+                allImages[i].style.display = 'none';
+            }
+
+
+            if(loop===18)loop=0;
+            allLis[loop].className = "current";
+            allImages[loop].style.display = "block";
+        },500);
+    };
+</script>
+</body>
+</html>

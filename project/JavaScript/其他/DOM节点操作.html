@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM节点操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<!--节点的增删改查-->
+<!--<div id="box">
+    <p id="word">哈哈哈</p>
+    <button>点我</button>
+</div>
+<script type="text/html">
+    window.onload = function () {
+        //获取插入元素，即插到那个元素里面；
+        var box = document.getElementById("box");
+
+
+        //1.创建节点
+        var img = document.createElement("img");
+        img.src = "nb03.png";
+        box.appendChild(img);//插入到元素的结尾；
+        //获取参照元素
+        var btn = document.getElementsByTagName("button")[0];
+        box.insertBefore(img,btn);//插入到参照元素之前；
+
+
+        //2.删除节点
+        var  word = document.getElementById("word");
+        word.parentNode.removeChild(word);//自杀方式；
+        //word.remove();//效果同上；
+
+        //3.改
+
+
+        //4.查
+        //即获取父节点，兄弟节点，子节点等操作；
+    }
+</script>
+--->
+
+<!--节点的复制-->
+<!--<div class="box">
+    <p id="word1">哈哈哈</p>
+    <button>点我</button>
+</div>
+<script type="text/html">
+    window.onload = function () {
+        //新节点=要复制的节点.cloneNode（参数）；参数可选复制节点；
+        var box = document.getElementsByClassName("box")[0];
+        var newTag = box.cloneNode(false/*true*/);
+        //false为浅拷贝，即拷贝第一层，true为深拷贝，拷贝所有内容，包括后代元素；
+        document.body.appendChild(newTag);
+    }
+</script>
+-->
+
+<!--节点属性操作-->
+<!--<div class="box">
+    <p id="word1">哈哈哈</p>
+    <button>点我</button>
+    <img>
+</div>
+<script type="text/html">
+    window.onload = function () {
+        //var img = document.getElementsByTagName("img")[0];
+        // //获取属性值：getAttribute（属性名称）；
+        // img.getAttribute("src");
+
+
+
+        // //设置属性：setAttribute（属性名称，值）；
+        // var img = document.getElementsByTagName("img")[0];
+        // img.setAttribute("src","nb03.png");
+
+        //删除属性：removeAttribute（属性名称）；
+        var img = document.getElementsByTagName("img")[0];
+        img.removeAttribute("src");
+    }
+</script>-->
+</body>
+</html>

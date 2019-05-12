@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px auto;
+            padding: 100px;
+        }
+
+        #box1, #box3 {
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #box2 {
+            width: 400px;
+            height: 200px;
+        }
+
+        #box2 > input {
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box1">菜单</div>
+    <hr>
+    <div id="box2">
+        <input type="checkbox">哎呀妈呀<br>
+        <input type="checkbox">脑瓜疼~<br>
+        <input type="checkbox">哎呀，我滴妈<br>
+        <input type="checkbox">我滴孩哟<br>
+        <input type="checkbox">我类儿~<br>
+    </div>
+    <hr>
+    <div id="box3">
+        <button id="allSelect">全选</button>
+        <button id="cancelSelect">取消选中</button>
+        <button id="reverseSelect">反选</button>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var input = document.querySelectorAll('input');
+        $("allSelect").onclick = function () {
+            for (var i = 0; i < input.length; i++) {
+                input[i].checked = true;
+            }
+        };
+        $("cancelSelect").onclick = function () {
+            for (var i = 0; i < input.length; i++) {
+                input[i].checked = false;
+            }
+        };
+        $("reverseSelect").onclick = function () {
+            for (var i = 0; i < input.length; i++) {
+                input[i].checked = !input[i].checked;
+            }
+        };
+        function $(id) {
+            return typeof id === "string" ? document.getElementById(id) : null;
+        }
+    }
+</script>
+</body>
+</html>
