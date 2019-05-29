@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-jQuery的extend方法</title>
+    <script>
+        function ljQuery() {
+
+        }
+        /*ljQuery.extend = function (obj) {
+        //此时的this时ljQuery这个类
+            for(var key in obj){
+                this[key] = obj[key];
+            }
+        };
+
+        ljQuery.extend({
+            isTest: function () {
+                console.log("test");
+            }
+        });
+        ljQuery.isTest();
+        */
+        /*ljQuery.prototype.extend = function (obj) {
+            //此时的this时ljQuery对象
+            for(var key in obj){
+                this[key] = obj[key];
+            }
+        };
+
+        var q = new ljQuery();
+        q.extend({
+            isDemo: function () {
+                console.log("Demo");
+            }
+        });
+        q.isDemo();
+        */
+        ljQuery.extend = ljQuery.prototype.extend = function (obj) {
+            for (var key in obj){
+                this[key] = obj[key];
+            }
+        };
+        ljQuery.extend({});//打印类
+        var q = new ljQuery();
+        q.extend();//打印对象
+    </script>
+</head>
+<body>
+
+</body>
+</html>
